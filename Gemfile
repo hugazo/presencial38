@@ -24,6 +24,10 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git'
 
 # Slim for page render
 gem 'slim'
+# Bootstrap for css
+gem 'bootstrap', '~> 4.0.0.beta'
+#jQuery for Bootstrap navbar
+gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
