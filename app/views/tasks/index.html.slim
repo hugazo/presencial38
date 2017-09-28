@@ -1,5 +1,7 @@
-= current_user.id
-- @tasks.each do |task|
-  = task.title
-  = task.description
-  = image_tag task.image
+.container
+  .row
+    - @tasks.each do |task|
+      .col-md-4
+        = task.title
+        = task.description
+        = image_tag( task.image, class: "img-fluid")
