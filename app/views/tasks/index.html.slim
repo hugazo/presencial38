@@ -5,13 +5,18 @@
         - row.each do |task|
           .card
             .card-img-top
-              = image_tag( task.image, class: "img-fluid")
+              -if completed?(task, current_user)
+                = image_tag( task.image, class: "img-fluid")
+              - else
+                = image_tag( task.image, class: "img-fluid img-task-not-completed")
             .card-body.text-center
               h4.card-title
                 = task.title
               p.card-text
                 = task.description
             .card-footer
-              =
-              = link_to "Marcar como Completado", task_todos_path(task), class: "btn btn-success", method: :post
+              - if completed?(task, current_user)
+                = link_to "No Completado", task_todos_path(task), class: "btn btn-secondary", method: :destroy
+              - else
+                = link_to "Completado", task_todos_path(task), class: "btn btn-success", method: :post
       .w-100[style="margin-top:20px"]

@@ -3,6 +3,9 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
-    byebug
+  end
+
+  def completed?(task, user)
+    task.users.exists?(user.id)
   end
 end

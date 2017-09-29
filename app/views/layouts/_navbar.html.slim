@@ -7,7 +7,10 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       - if user_signed_in?
         li.nav-item
           a.nav-link
-            | Completados (0/0)
+            | Completados 
+            = current_user.tasks.count
+            | /
+            = @tasks.count
     form.form-inline.my-2.my-lg-0
       ul.navbar-nav
         - if user_signed_in?

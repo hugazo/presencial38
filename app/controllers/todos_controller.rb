@@ -10,4 +10,8 @@ class TodosController < ApplicationController
       redirect_to tasks_path, alert: 'Tarea no guardada'
     end
   end
+
+  def destroy
+
+  end
 end
