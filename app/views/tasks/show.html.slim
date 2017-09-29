@@ -1,0 +1,16 @@
+.container[style="margin-top:20px"]
+  h1
+    | Tarea: 
+    = @task.title
+  h1.small
+    = @task.description
+.container[style="margin-top:20px"]
+  - if @task.users.count == 0
+    p Nadie ha completado esta tarea :(
+  - else
+    p Los siguientes usuarios han completado esta tarea!
+.container
+  ul.list-group
+    - @task.users.each do |user|
+      li.list-group-item
+        = user.email

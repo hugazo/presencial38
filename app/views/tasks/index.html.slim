@@ -1,14 +1,15 @@
 .container[style="margin-top:20px"]
   .row
-    - @tasks.each_slice(4) do |row|
+    - @tasks.each_slice(3) do |row|
       .card-deck
         - row.each do |task|
           .card
             .card-img-top
+
               -if completed?(task, current_user)
-                = image_tag( task.image, class: "img-fluid")
+                = link_to(image_tag( task.image, class: "img-fluid"), task_path(task))
               - else
-                = image_tag( task.image, class: "img-fluid img-task-not-completed")
+                = link_to(image_tag( task.image, class: "img-fluid img-task-not-completed"), task_path(task))
             .card-body.text-center
               h4.card-title
                 = task.title

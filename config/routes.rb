@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'todos/create'
 
-  resources :tasks, only: :index do
+  resources :tasks, only: [:index, :show] do
     resources :todos, only: [:create, :destroy]
   end
   devise_for :users, controllers: {
