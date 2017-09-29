@@ -16,7 +16,7 @@
                 = task.description
             .card-footer
               - if completed?(task, current_user)
-                = link_to "No Completado", task_todos_path(task), class: "btn btn-secondary", method: :destroy
+                = link_to "No Completado", task_todo_path(task, task.todo_ids[0]), class: "btn btn-secondary", method: :delete
               - else
                 = link_to "Completado", task_todos_path(task), class: "btn btn-success", method: :post
       .w-100[style="margin-top:20px"]
