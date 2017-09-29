@@ -1,0 +1,34 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarToggles" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  = link_to("Lista por hacer el 18", root_path, class: "navbar-brand")
+  #navbarToggles.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+      - if user_signed_in?
+        li.nav-item
+          a.nav-link
+            | Completados (0/0)
+    form.form-inline.my-2.my-lg-0
+      ul.navbar-nav
+        - if user_signed_in?
+          li.nav-item
+            = link_to("Salir", destroy_user_session_path, method: :delete, class: "nav-link")
+        - else
+          li.nav-item
+            = link_to("Ingresar", new_user_session_path, class: "nav-link")
+          li.nav-item
+            = link_to("Registrarse", new_user_registration_path, class: "nav-link")
+
+
+- if notice
+  .alert.alert-success.alert-dismissible.fade.show role="alert"
+    button.close[type="button" data-dismiss="alert" aria-label="Close"]
+      span[aria-hidden="true"]
+        | ×
+    = notice
+- if alert
+  .alert.alert-success.alert-dismissible.fade.show role="alert"
+    button.close[type="button" data-dismiss="alert" aria-label="Close"]
+      span[aria-hidden="true"]
+        | ×
+    = alert

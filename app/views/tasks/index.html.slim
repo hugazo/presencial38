@@ -1,7 +1,17 @@
-.container
+.container[style="margin-top:20px"]
   .row
-    - @tasks.each do |task|
-      .col-md-4
-        = task.title
-        = task.description
-        = image_tag( task.image, class: "img-fluid")
+    - @tasks.each_slice(4) do |row|
+      .card-deck
+        - row.each do |task|
+          .card
+            .card-img-top
+              = image_tag( task.image, class: "img-fluid")
+            .card-body.text-center
+              h4.card-title
+                = task.title
+              p.card-text
+                = task.description
+            .card-footer
+              =
+              = link_to "Marcar como Completado", task_todos_path(task), class: "btn btn-success", method: :post
+      .w-100[style="margin-top:20px"]

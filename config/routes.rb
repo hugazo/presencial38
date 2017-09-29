@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tasks, only: :index
+  get 'todos/create'
+
+  resources :tasks, only: :index do
+    resources :todos, only: :create
+  end
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
