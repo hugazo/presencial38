@@ -47,6 +47,11 @@ todos = [
     title: 'Descansar!',
     description: 'Después de un 18 bailado y comido, nada como descansar para el proximo 18.',
     image: 'imgs/yasta.jpg'
+  },
+  {
+    title: 'Contar los dias',
+    description: 'Una vez pasada la caña, no nos queda más que contar los días hasta el próximo 18'
+    image: 'imgs/calendario.jpg'
   }
 ]
 

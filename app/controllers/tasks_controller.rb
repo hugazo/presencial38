@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def show
     @tasks = Task.all
     @task = Task.find(params[:id])
+    @top5 = @task.todos.order(:created_at).limit(5)
   end
 
   def index

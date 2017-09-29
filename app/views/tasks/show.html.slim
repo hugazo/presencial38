@@ -1,10 +1,25 @@
-.container[style="margin-top:20px"]
+.container.marginFix
   h1
-    | Tarea: 
+    | Tarea:
     = @task.title
   h1.small
     = @task.description
-.container[style="margin-top:20px"]
+.container.marginFix
+  p Nuestro top 5 de personas que completaron primero esta tarea:
+  ul.list-group
+    - @top5.each do |todo|
+      li.list-group-item
+        .row
+          .col-md-2
+            = image_tag todo.user.image, class: "imageTopFive img-thumbnail"
+          .col-md-10
+            p
+             | Usuario: 
+             = todo.user.email
+            p
+             | Tarea lista el  
+             = todo.created_at.localtime.to_formatted_s(:long)
+.container.marginFix
   - if @task.users.count == 0
     p Nadie ha completado esta tarea :(
   - else
